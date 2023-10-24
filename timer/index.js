@@ -21,6 +21,7 @@ const stopButtonHandler = () => {
 
 const resetButtonHandler = () => {
   timer.innerHTML = '00 : 00 : 00';
+  time = 0;
 };
 
 const timerStart = () => {
