@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container {
+    padding : 20px 20px;
+    border: 1px #000 solid;
+    border-radius: 15px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    font-size: 30px;
+    padding: 20px 20px;
+    border: 1px #000 solid;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+button {
+    background-color: transparent;
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
