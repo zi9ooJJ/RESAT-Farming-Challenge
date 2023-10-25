@@ -11,7 +11,7 @@ const todoInputHandler = (e) => {
 };
 
 const todoPriorityHandler = (e) => {
-  todoPriority = e.target.value;
+  todoPriority = e.target.options[e.target.selectedIndex].text;
 };
 
 const addTodoHandler = () => {
@@ -33,6 +33,22 @@ const showTodos = () => {
   const checkBox = document.createElement('input');
   const todoText = document.createElement('span');
   const priorityLabel = document.createElement('span');
+
+  todoList.classList.add('todo-list');
+  todoText.classList.add('todo-text');
+  priorityLabel.classList.add('priority-label');
+  // 우선순위 별 CSS Style 개별 적용
+  const selectedValue = priority.value;
+  priorityLabel.classList.remove('low', 'normal', 'high', 'very-high');
+  if (selectedValue === 'low') {
+    priorityLabel.classList.add('low');
+  } else if (selectedValue === 'normal') {
+    priorityLabel.classList.add('normal');
+  } else if (selectedValue === 'high') {
+    priorityLabel.classList.add('high');
+  } else if (selectedValue === 'very-high') {
+    priorityLabel.classList.add('very-high');
+  }
 
   checkBox.type = 'checkbox';
   todoText.innerText = todo;

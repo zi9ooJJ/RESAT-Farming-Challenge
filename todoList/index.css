@@ -9,19 +9,90 @@
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
 .todo-list-container {
     border: 1px solid #000;
+    border-radius: 15px;
     padding: 20px 30px;
-    width: 460px;
-
+    width: 420px;
 }
 
 .process-button-container {
     display: flex;
     gap: 15px;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.process-button-container button {
+    width: 100px;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.all:hover {
+    color:#fff;
+    background-color: #000;
+}
+
+.complete:hover {
+color: #fff;
+background-color: #138636;
+}
+
+.incomplete:hover {
+    color: #fff;
+    background-color: #c91432;
+}
+
+.todo-input-container {
+    display: flex;
     justify-content: space-between;
 }
 
-li {
+.todo-input {
+    border: none;
+    width: 200px;
+}
+
+.todo-list {
     list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-text {
+    font-size: 15px;
+}
+
+.priority-label {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    margin: 5px;
+    color: #fff;
+}
+
+.low {
+    background-color: #2998C4;
+}
+
+.normal {
+    background-color: #1B6BAD;
+}
+
+.high {
+    background-color: #FCB734;
+}
+
+.very-high {
+    background-color: #D6172C;
 }

@@ -21,15 +21,18 @@
             type="text"
             placeholder="할 일을 작성해주세요."
           />
-          <select name="priority" id="priority" class="priority">
-            <option value="">우선순위를 선택하세요</option>
-            <option value="low">낮음</option>
-            <option value="normal">보통</option>
-            <option value="high">높음</option>
-            <option value="very-high">아주 높음</option>
-          </select>
-          <button class="add-todo">추가</button>
+          <div>
+            <select name="priority" id="priority" class="priority">
+              <option value="">우선순위</option>
+              <option value="low">낮음</option>
+              <option value="normal">보통</option>
+              <option value="high">높음</option>
+              <option value="very-high">아주 높음</option>
+            </select>
+            <button class="add-todo">추가</button>
+          </div>
         </div>
+        <hr />
         <ul class="todos-wrapper"></ul>
       </div>
     </main>
