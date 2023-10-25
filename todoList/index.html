@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do List</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="todo-list-container">
+        <h1>TO-DO LIST</h1>
+        <div class="process-button-container">
+          <button class="all">전체</button>
+          <button class="complete">완료</button>
+          <button class="incomplete">미완료</button>
+        </div>
+        <div class="todo-input-container">
+          <input
+            class="todo-input"
+            type="text"
+            placeholder="할 일을 작성해주세요."
+          />
+          <select name="priority" id="priority" class="priority">
+            <option value="">우선순위를 선택하세요</option>
+            <option value="low">낮음</option>
+            <option value="normal">보통</option>
+            <option value="high">높음</option>
+            <option value="very-high">아주 높음</option>
+          </select>
+          <button class="add-todo">추가</button>
+        </div>
+        <ul class="todos-wrapper"></ul>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
