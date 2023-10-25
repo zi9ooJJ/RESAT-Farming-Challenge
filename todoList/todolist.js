@@ -1,12 +1,15 @@
 const todoInput = document.querySelector('.todo-input');
+const allTodosButton = document.querySelector('.all');
+const completeButton = document.querySelector('.complete');
+const incompleteButton = document.querySelector('.incomplete');
 const addTodoButton = document.querySelector('.add-todo');
-const priority = document.querySelector('.priority');
+const prioritySelect = document.querySelector('.priority');
 const todosWrapper = document.querySelector('.todos-wrapper');
 
 let todo = '';
 let todoPriority = '';
-let list = {};
 let tasks = [];
+let todoProcess = 'all';
 
 const todoInputHandler = (e) => {
   todo = e.target.value;
@@ -16,11 +19,21 @@ const todoPriorityHandler = (e) => {
   todoPriority = e.target.options[e.target.selectedIndex].text;
 };
 
-const addTodoHandler = () => {
+const addTodoHandler = (e) => {
+  e.preventDefault();
   if (todo === '') return alert('할 일을 입력해주세요😇');
   if (todoPriority === '') return alert('우선순위를 선택해주세요🤭');
-  tasks.push(todo);
-  showTodos();
+
+  const newTask = {
+    id: tasks.length,
+    text: todo,
+    priority: todoPriority,
+    complete: false,
+  };
+
+  tasks.push(newTask);
+
+  showTodos(tasks);
   resetInput();
 };
 
@@ -28,49 +41,82 @@ const resetInput = () => {
   todo = '';
   todoPriority = '';
   todoInput.value = '';
-  priority.value = '';
+  prioritySelect.value = '';
 };
 
-const isChecked = () => {
-  const checkedTodo = 'input[name="checkBox"]:checked';
-  const checkedTodos = document.querySelectorAll(checkedTodo);
-  console.log(checkedTodo);
+const isChecked = (id, checked) => {
+  const newTasks = tasks.map((task) => {
+    if (task.id === id) {
+      task.complete = checked;
+    }
+    return task;
+  });
+
+  todoProcess === 'all'
+    ? showTodos(newTasks)
+    : todoProcessHandler(todoProcess, newTasks);
 };
 
-const showTodos = () => {
-  const todoList = document.createElement('li');
-  const checkBox = document.createElement('input');
-  const todoText = document.createElement('span');
-  const priorityLabel = document.createElement('span');
+const showTodos = (tasks) => {
+  todosWrapper.innerHTML = '';
+  tasks.forEach((task) => {
+    const todoList = document.createElement('li');
+    const checkBox = document.createElement('input');
+    const todoText = document.createElement('span');
+    const priorityLabel = document.createElement('span');
 
-  todoList.classList.add('todo-list');
-  todoText.classList.add('todo-text');
-  priorityLabel.classList.add('priority-label');
+    todoList.classList.add('todo-list');
+    todoText.classList.add('todo-text');
+    priorityLabel.classList.add('priority-label');
 
-  // 우선순위 별 CSS Style 개별 적용
-  const selectedValue = priority.value;
-  priorityLabel.classList.remove('low', 'normal', 'high', 'very-high');
-  if (selectedValue === 'low') {
-    priorityLabel.classList.add('low');
-  } else if (selectedValue === 'normal') {
-    priorityLabel.classList.add('normal');
-  } else if (selectedValue === 'high') {
-    priorityLabel.classList.add('high');
-  } else if (selectedValue === 'very-high') {
-    priorityLabel.classList.add('very-high');
-  }
+    checkBox.type = 'checkbox';
+    checkBox.setAttribute('name', 'checkBox');
+    todoText.innerText = task.text;
+    priorityLabel.innerText = task.priority;
 
-  checkBox.type = 'checkbox';
-  checkBox.setAttribute('name', 'checkBox');
-  todoText.innerText = todo;
-  priorityLabel.innerText = todoPriority;
+    if (task.complete) {
+      checkBox.setAttribute('checked', '');
+    }
 
-  todoList.appendChild(checkBox);
-  todoList.appendChild(todoText);
-  todoList.appendChild(priorityLabel);
-  todosWrapper.appendChild(todoList);
+    checkBox.addEventListener('click', () =>
+      isChecked(task.id, checkBox.checked)
+    );
+
+    // 우선순위 별 스타일 클래스 추가
+    priorityLabel.classList.remove('low', 'normal', 'high', 'very-high');
+    if (task.priority === '낮음') {
+      priorityLabel.classList.add('low');
+    } else if (task.priority === '보통') {
+      priorityLabel.classList.add('normal');
+    } else if (task.priority === '높음') {
+      priorityLabel.classList.add('high');
+    } else if (task.priority === '아주 높음') {
+      priorityLabel.classList.add('very-high');
+    }
+
+    todoList.appendChild(checkBox);
+    todoList.appendChild(todoText);
+    todoList.appendChild(priorityLabel);
+    todosWrapper.appendChild(todoList);
+  });
+};
+
+const allSortHandler = () => {
+  todoProcess = 'all';
+  showTodos(tasks);
+};
+
+const todoProcessHandler = (state, list) => {
+  todoProcess = state;
+  const newTodo = list.filter((task) => task.complete === state);
+  showTodos(newTodo);
 };
 
 todoInput.addEventListener('change', todoInputHandler);
 addTodoButton.addEventListener('click', addTodoHandler);
-priority.addEventListener('change', todoPriorityHandler);
+prioritySelect.addEventListener('change', todoPriorityHandler);
+allTodosButton.addEventListener('click', allSortHandler);
+completeButton.addEventListener('click', () => todoProcessHandler(true, tasks));
+incompleteButton.addEventListener('click', () =>
+  todoProcessHandler(false, tasks)
+);

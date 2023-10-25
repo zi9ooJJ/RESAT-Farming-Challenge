@@ -31,10 +31,12 @@ h1 {
 .process-button-container button {
     width: 100px;
     border-radius: 10px;
+    border: 1px solid;
     font-size: 15px;
     padding: 5px 10px;
     cursor: pointer;
     background-color: #fff;
+    outline: none;
 }
 
 .all:hover {
@@ -71,6 +73,22 @@ background-color: #138636;
 
 .todo-text {
     font-size: 15px;
+}
+
+.add-todo {
+    border: 1px solid #a6a5a5;
+    outline: none;
+    background-color: inherit ;
+    cursor: pointer;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #a6a5a5;
+    font-size: 13px;
+}
+
+.add-todo:hover {
+    background-color: #a6a5a5;
+    color: #fff;
 }
 
 .priority-label {
