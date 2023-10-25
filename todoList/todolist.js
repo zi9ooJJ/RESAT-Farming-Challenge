@@ -5,6 +5,8 @@ const todosWrapper = document.querySelector('.todos-wrapper');
 
 let todo = '';
 let todoPriority = '';
+let list = {};
+let tasks = [];
 
 const todoInputHandler = (e) => {
   todo = e.target.value;
@@ -17,6 +19,7 @@ const todoPriorityHandler = (e) => {
 const addTodoHandler = () => {
   if (todo === '') return alert('할 일을 입력해주세요😇');
   if (todoPriority === '') return alert('우선순위를 선택해주세요🤭');
+  tasks.push(todo);
   showTodos();
   resetInput();
 };
@@ -28,6 +31,12 @@ const resetInput = () => {
   priority.value = '';
 };
 
+const isChecked = () => {
+  const checkedTodo = 'input[name="checkBox"]:checked';
+  const checkedTodos = document.querySelectorAll(checkedTodo);
+  console.log(checkedTodo);
+};
+
 const showTodos = () => {
   const todoList = document.createElement('li');
   const checkBox = document.createElement('input');
@@ -37,6 +46,7 @@ const showTodos = () => {
   todoList.classList.add('todo-list');
   todoText.classList.add('todo-text');
   priorityLabel.classList.add('priority-label');
+
   // 우선순위 별 CSS Style 개별 적용
   const selectedValue = priority.value;
   priorityLabel.classList.remove('low', 'normal', 'high', 'very-high');
@@ -51,6 +61,7 @@ const showTodos = () => {
   }
 
   checkBox.type = 'checkbox';
+  checkBox.setAttribute('name', 'checkBox');
   todoText.innerText = todo;
   priorityLabel.innerText = todoPriority;
 

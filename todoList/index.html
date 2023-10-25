@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do List</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="todolist.css" />
   </head>
   <body>
     <main class="main-container">
@@ -15,7 +15,7 @@
           <button class="complete">완료</button>
           <button class="incomplete">미완료</button>
         </div>
-        <div class="todo-input-container">
+        <form class="todo-input-container">
           <input
             class="todo-input"
             type="text"
@@ -29,13 +29,13 @@
               <option value="high">높음</option>
               <option value="very-high">아주 높음</option>
             </select>
-            <button class="add-todo">추가</button>
+            <button type="submit" class="add-todo">추가</button>
           </div>
-        </div>
+        </form>
         <hr />
         <ul class="todos-wrapper"></ul>
       </div>
     </main>
-    <script src="index.js"></script>
+    <script src="todolist.js"></script>
   </body>
 </html>
