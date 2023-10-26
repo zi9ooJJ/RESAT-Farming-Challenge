@@ -73,12 +73,14 @@ const goToday = document.querySelector('.go-today');
 
 // 지난달로 이동
 const prevMonth = () => {
+  date.setDate(1);
   date.setMonth(date.getMonth() - 1);
   showCalendar();
 };
 
 // 다음달로 이동
 const nextMonth = () => {
+  date.setDate(1);
   date.setMonth(date.getMonth() + 1);
   showCalendar();
 };
