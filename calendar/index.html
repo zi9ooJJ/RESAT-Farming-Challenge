@@ -7,7 +7,30 @@
     <link rel="stylesheet" href="calendar.css" />
   </head>
   <body>
-    <main></main>
+    <main class="main-container">
+      <div class="calendar-container">
+        <div class="header">
+          <div class="year-month"></div>
+          <div class="nav">
+            <button class="nav-btn go-prev">&lt;</button>
+            <button class="nav-btn go-today">Today</button>
+            <button class="nav-btn go-next">&gt;</button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="days">
+            <div class="day">SUN</div>
+            <div class="day">MON</div>
+            <div class="day">TUE</div>
+            <div class="day">WED</div>
+            <div class="day">THU</div>
+            <div class="day">FRI</div>
+            <div class="day">SAT</div>
+          </div>
+          <div class="dates"></div>
+        </div>
+      </div>
+    </main>
     <script src="calendar.js"></script>
   </body>
 </html>
