@@ -114,7 +114,7 @@ const memoModalHandler = (y, m, d) => {
     dateElements.forEach((dateElement) => {
       if (dateElement.getAttribute('data-date') === d.toString()) {
         if (memoData[key] && memoData[key].length > 0) {
-          dateElement.innerHTML += '<div class="memo-label">📝</div>';
+          dateElement.innerHTML += '<span class="memo-label">📝</span>';
         }
       }
     });
