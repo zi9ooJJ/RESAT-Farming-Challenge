@@ -48,7 +48,7 @@ const showCalendar = () => {
       i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
     dates[
       i
-    ] = `<div class="date"><span class="${condition}">${date}</span></div>`;
+    ] = `<div class="date" data-date="${date}"><span class="${condition}">${date}</span></div>`;
   });
 
   document.querySelector('.dates').innerHTML = dates.join('');
@@ -67,6 +67,75 @@ const showCalendar = () => {
 
 showCalendar();
 
+// 메모장 모달
+const mainArea = document.querySelector('.main');
+
+let memoData = {};
+
+const memoModalHandler = (y, m, d) => {
+  const modalWrap = document.createElement('div');
+  const memoDate = document.createElement('div');
+  const memoModal = document.createElement('textarea');
+  const memoArea = document.createElement('div');
+  //   const addButton = document.createElement('button');
+  const postButton = document.createElement('button');
+
+  modalWrap.classList.add('modal-wrap');
+  memoModal.classList.add('memo-modal');
+  memoModal.setAttribute('placeholder', '메모를 입력해주세요.');
+  memoArea.classList.add('memo-area');
+  memoDate.classList.add('memo-date');
+  postButton.classList.add('post-button');
+  postButton.innerText = '등록';
+
+  memoDate.innerText = `${y}년 ${m}월 ${d}일`;
+
+  mainArea.appendChild(modalWrap);
+  modalWrap.appendChild(memoDate);
+  modalWrap.appendChild(memoModal);
+  modalWrap.appendChild(memoArea);
+  modalWrap.appendChild(postButton);
+
+  const dateElements = document.querySelectorAll('.date');
+
+  postButton.addEventListener('click', () => {
+    const memoContent = memoModal.value;
+    const key = `${y}-${m}-${d}`;
+
+    if (memoContent) {
+      if (!memoData[key]) {
+        memoData[key] = [];
+      }
+      memoData[key].push(memoContent);
+    }
+    modalWrap.style.display = 'none';
+
+    // 날짜 엘리먼트를 찾고 data-date 속성을 비교
+    dateElements.forEach((dateElement) => {
+      if (dateElement.getAttribute('data-date') === d.toString()) {
+        if (memoData[key] && memoData[key].length > 0) {
+          dateElement.innerHTML += '<div class="memo-label">📝</div>';
+        }
+      }
+    });
+  });
+};
+
+// 날짜 클릭시 메모장 모달 띄우기
+const openModal = () => {
+  const dateModal = document.querySelectorAll('.date');
+  for (let i = 0; i < dateModal.length; i++) {
+    dateModal[i].addEventListener('click', () => {
+      const clickedDate = parseInt(dateModal[i].textContent); // 클릭한 날짜 가져오기
+      const clickedYear = date.getFullYear();
+      const clickedMonth = date.getMonth() + 1;
+      memoModalHandler(clickedYear, clickedMonth, clickedDate);
+    });
+  }
+};
+
+openModal();
+
 const goPrev = document.querySelector('.go-prev');
 const goNext = document.querySelector('.go-next');
 const goToday = document.querySelector('.go-today');
@@ -76,6 +145,7 @@ const prevMonth = () => {
   date.setDate(1);
   date.setMonth(date.getMonth() - 1);
   showCalendar();
+  openModal();
 };
 
 // 다음달로 이동
@@ -83,12 +153,14 @@ const nextMonth = () => {
   date.setDate(1);
   date.setMonth(date.getMonth() + 1);
   showCalendar();
+  openModal();
 };
 
 // 오늘 날짜로 이동
 const showToday = () => {
   date = new Date();
   showCalendar();
+  openModal();
 };
 
 goPrev.addEventListener('click', prevMonth);
