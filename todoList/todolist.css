@@ -1,5 +1,8 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
   }
 
 .main-container {
@@ -11,7 +14,6 @@
 
 h1 {
     text-align: center;
-    margin: 0;
 }
 
 .todo-list-container {
@@ -57,6 +59,7 @@ background-color: #138636;
 .todo-input-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .todo-input {
@@ -84,6 +87,7 @@ background-color: #138636;
     cursor: pointer;
     color: #a6a5a5;
     font-size: 13px;
+    width: 20px;
 }
 
 .add-todo:hover {
