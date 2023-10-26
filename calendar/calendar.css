@@ -168,3 +168,7 @@
     cursor: pointer;
     
 }
+
+.memo-label {
+    float: right;
+}
