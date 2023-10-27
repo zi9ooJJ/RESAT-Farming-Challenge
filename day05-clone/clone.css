@@ -1,0 +1,94 @@
+tml, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    vertical-align: baseline;
+    color: rgb(26, 27, 28);
+}
+
+body {
+    font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+header {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    height: 61px;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 56, 68, 0.1);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 90rem;
+}
+
+.header-nav ul {
+    display: flex;
+    height: 100%;
+}
+
+.nav-li a {
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 400;
+    color: rgb(171, 177, 177);
+}
+
+.header-user {
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 24px;
+    height: 100%;
+}
+
+.header-user ul {
+    display: flex;
+    height: 100%;
+}
+
+.user-li a {
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 400;
+    color: rgb(23, 161, 255);
+}
+
+.service-introduce a {
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 400;
+    color: rgb(171, 177, 177);
+}
