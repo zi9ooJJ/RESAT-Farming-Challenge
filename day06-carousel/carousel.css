@@ -25,15 +25,20 @@
 
 .prev, .next {
     position: absolute;
-    /* transform: translateY(-50%); */
-    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    outline: none;
+    padding: 0.2em;
+    background: #969691;
+    color: #fff;
+    border: none;
 }
 
 .prev {
-    bottom: 50%;
+    left: 10px;
 }
 
 .next {
-    top: 50%;
-    right: 0;
+    right: 10px;
 }
