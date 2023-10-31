@@ -29,16 +29,28 @@ imgURL.forEach((img) => {
   carouselWrapper.appendChild(carouselSlide);
 });
 
-prevBtn.addEventListener('click', () => {
-  imgIdx = (imgIdx - 1 + imgURL.length) % imgURL.length;
+const carouselHandler = () => {
+  if (imgIdx > imgURL.length - 1) {
+    imgIdx = 0;
+  }
+  if (imgIdx < 0) {
+    imgIdx = imgURL.length - 1;
+  }
 
   carouselWrapper.style.transform = `translateX(-${imgIdx * 100}%)`;
+};
+
+prevBtn.addEventListener('click', () => {
+  imgIdx--;
+  carouselHandler();
 });
 
 nextBtn.addEventListener('click', () => {
-  imgIdx = (imgIdx + 1) % imgURL.length;
-
-  carouselWrapper.style.transform = `translateX(-${imgIdx * 100}%)`;
+  imgIdx++;
+  carouselHandler();
 });
 
-carouselWrapper.style.transform = `translateX(-${imgIdx * 100}%)`;
+setInterval(() => {
+  imgIdx++;
+  carouselHandler();
+}, 2000);
