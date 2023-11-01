@@ -405,6 +405,117 @@ svg:not(:root) {
     -webkit-box-orient: vertical;
 }
 
+.recruitment-company {
+    margin-top: 60px;
+}
+
+.recruitment-company-lists-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 936px;
+    margin-bottom: 24px;
+}
+
+.recruitment-company-list-wrapper {
+    width: 100%;
+    box-shadow: rgb(26 27 28 / 12%) 0px 4px 8px 0px;
+    opacity: 1;
+    transition: transform 0.4s ease 0s, box-shadow 0.4s ease 0s;
+    border-radius: 5px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.recruitment-company-list-content {
+    display: flex;
+    padding: 12px;
+    width: 100%;
+    position: relative;
+}
+
+.recruitment-unbookmarked-button {
+    border: none;
+    padding: 0px;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.recruitment-card-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-right: 12px;
+    position: relative;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.recruitment-card-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;   
+}
+
+.recruitment-card-info-categories{
+    font-size: 12px;
+    color: rgb(147, 153, 153);
+    margin-bottom: 2px;
+}
+
+.recruitment-card-info-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.recruitment-card-info-company-name {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.recruitment-card-info-employment-type-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recruitment-card-info-employment-type {
+    border-radius: 5px;
+    background-color: rgb(241, 249, 255);
+    color: rgb(23, 161, 255);
+    padding: 0px 4px;
+    margin-top: 4px;
+    margin-right: 4px;
+    font-size: 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.recruitment-card-info-status {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 4px;
+    padding: 2px 4px;
+    font-size: 12px;
+    color: rgb(147, 153, 153);
+    background-color: rgb(240, 243, 243);
+    border-radius: 5px;
+    width: max-content;
+
+}
+
 /* footer */
 #footer-wrapper {
     position: relative;
