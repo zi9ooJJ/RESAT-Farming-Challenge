@@ -1,36 +1,57 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-
-.main-container {
-    height: 100vh;
+.main-carousel-info-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    margin: 60px 0px 0px;
+    padding: 20px 0px 0px;
 }
 
-.carousel-container {
-    width: 500px;
-    height: 300px;
+.main-carousel-info-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 230px;
+    left: -9999px;
+    right: -9999px;
+    z-index: -1;
+    background: rgb(249, 249, 249);
+}
+
+.new-service-slider {
+    width: 335px;
+    height: 221px;
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .carousel-wrapper {
     display: flex;
+    position: relative;
     transition: all 0.5s ease-in-out;
+    
 }
 
 .carousel-wrapper > .carousel-slide {
     flex: 0 0 100%;
+    position: relative;
 }
 
 .carousel-slide img {
     width: 100%;
-    height: 100%;
+    height: 221px;
+}
+
+.carousel-slide .carousel-text {
+    overflow: hidden;
+    position: absolute;
+    top: 35%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0px 30px 0px 30px;
 }
 
 .prev, .next {
@@ -52,4 +73,39 @@
 
 .next {
     right: 10px;
+}
+
+.new-service-info-box {
+    position: relative;
+    width: 100%;
+    padding: 66px 0px 30px 30px;
+}
+
+.new-service-info-box .new-service-info-badge {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    background-color: rgb(23, 161, 255);
+    padding: 8px 22px 9px 30px;
+    border-radius: 0px 17px 17px 0px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 17px;
+    color: #fff;
+}
+.new-service-info-box .new-service-info-title {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(147, 153, 153);
+    word-break: keep-all;
+}
+
+.new-service-info-box .new-service-info-text {
+    margin: 4px 0px 0px;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 31px;
+    word-break: keep-all;
+    color: rgb(26, 27, 28);
 }
