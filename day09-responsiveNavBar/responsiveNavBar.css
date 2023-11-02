@@ -66,11 +66,6 @@
     margin-left: auto;
 }
 
-.header-nav-mobile.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 .nav-burger-icon {
     position: fixed;
     top: 1rem;
@@ -101,17 +96,7 @@
     align-items: flex-start;
     transform: translateX(100%);
     z-index: 999;
-    color: #fff;
     transition: transform 0.3s ease;
-}
-
-.nav-list-wrapper-mobile a {
-    position: relative;
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    margin-bottom: 3rem;
-    text-decoration: none;
 }
 
 .nav-list-wrapper-mobile.active {
