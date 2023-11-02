@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+#header {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #6d6d6d;
+    
+}
+
+  /* PC 버전 (768px 이상) */
+.logo-box {
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.header-nav-pc {
+    margin-left: auto;
+    margin-right: 20px;   
+}
+
+.nav-list-wrapper-pc {
+    gap: 25px;
+    display: flex;
+    line-height: 1.75;
+}
+
+.nav-list-pc {
+    font-weight: 600;
+    font-size: 30px;
+    position: relative;
+}
+
+.nav-list-pc a {
+    color: #000;
+}
+
+.nav-list-pc::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 25%;
+    top: 50%;
+    background-color: #cacaca;
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.nav-list-pc:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+  /* 모바일 버전 (767px 이햐) */
+.header-nav-mobile {
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.header-nav-mobile.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-burger-icon {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    color: #000;
+}
+
+.nav-x-icon {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.nav-list-wrapper-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #0e0e0e;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translateX(100%);
+    z-index: 999;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.nav-list-wrapper-mobile a {
+    position: relative;
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    text-decoration: none;
+}
+
+.nav-list-wrapper-mobile.active {
+    transform: translateX(0);
+  }
+
+.nav-list-mobile {
+    font-weight: 600;
+    font-size: 30px;
+    position: relative;
+}
+
+.nav-list-mobile a {
+    color: #fff;
+}
+
+  /* 반응형 미디어 쿼리 */
+@media screen and (min-width: 768px) {
+    .header-nav-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-nav-pc {
+        display: none;
+    }
+}
