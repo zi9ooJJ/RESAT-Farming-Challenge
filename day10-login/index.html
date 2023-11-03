@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="login-container">
+        <div class="login-form-wrapper">
+          <h1>Login</h1>
+          <form class="login-form">
+            <div class="id-input-wrapper">
+              <label for="userID" class="userID-label">ID</label>
+              <input
+                type="text"
+                name="userID"
+                id="userID"
+                placeholder="아이디를 입력해주세요."
+              />
+            </div>
+            <div class="pw-input-wrapper">
+              <label for="userPW" class="userPW-label">PW</label>
+              <input
+                type="password"
+                name="userPW"
+                id="userPW"
+                placeholder="비밀번호를 입력해주세요."
+              />
+            </div>
+            <button type="submit">로그인</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="login.js"></script>
+  </body>
+</html>
