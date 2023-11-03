@@ -67,3 +67,36 @@ input {
     background-color: #000;
     color: #fff;
 }
+
+.toast-box {
+    position: fixed;       
+    top: 20%;      
+    left: 50%;                  
+    transform: translateX(-50%);   
+    min-width: 100px;    
+    border-radius: 5px;   
+    background-color: #666666;   
+    color: #FFFFFF;   
+    padding: 15px 25px;    
+    animation: fade-in 0.7s ease-in-out, fade-out 2s ease-in-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
