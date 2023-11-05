@@ -1,15 +1,11 @@
 const navBurgerBtn = document.querySelector('.nav-burger-icon');
 const navXBtn = document.querySelector('.nav-x-icon');
-const navListWrapperMobile = document.querySelector('.nav-list-wrapper-mobile');
+const navListWrapper = document.querySelector('.nav-list-wrapper');
 
 navBurgerBtn.addEventListener('click', () => {
-  navListWrapperMobile.classList.toggle('active');
+  navListWrapper.classList.toggle('active');
 });
 
 navXBtn.addEventListener('click', () => {
-  navListWrapperMobile.classList.remove('active');
-});
-
-navListWrapperMobile.addEventListener('click', () => {
-  navListWrapperMobile.classList.remove('active');
+  navListWrapper.classList.remove('active');
 });

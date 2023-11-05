@@ -15,35 +15,34 @@
     
 }
 
-  /* PC 버전 (768px 이상) */
 .logo-box {
     background-color: #000;
     color: #fff;
     padding: 5px 10px;
 }
 
-.header-nav-pc {
+.header-nav {
     margin-left: auto;
     margin-right: 20px;   
 }
 
-.nav-list-wrapper-pc {
-    gap: 25px;
+.nav-list-wrapper {
     display: flex;
+    gap: 25px;
     line-height: 1.75;
 }
 
-.nav-list-pc {
+.nav-list {
     font-weight: 600;
     font-size: 30px;
     position: relative;
 }
 
-.nav-list-pc a {
+.nav-list a {
     color: #000;
 }
 
-.nav-list-pc::before {
+.nav-list::before {
     content: '';
     position: absolute;
     left: 50%;
@@ -55,18 +54,13 @@
     z-index: -1;
 }
 
-.nav-list-pc:hover::before {
+.nav-list:hover::before {
     width: 100%;
     left: 0;
 }
 
-  /* 모바일 버전 (767px 이햐) */
-.header-nav-mobile {
-    margin-right: 10px;
-    margin-left: auto;
-}
-
 .nav-burger-icon {
+    display: none;
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -75,53 +69,62 @@
 }
 
 .nav-x-icon {
+    display: none;
     position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     cursor: pointer;
     color: #fff;
 }
 
-.nav-list-wrapper-mobile {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    background-color: #0e0e0e;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    transform: translateX(100%);
-    z-index: 999;
-    transition: transform 0.3s ease;
-}
-
-.nav-list-wrapper-mobile.active {
-    transform: translateX(0);
-  }
-
-.nav-list-mobile {
-    font-weight: 600;
-    font-size: 30px;
-    position: relative;
-}
-
-.nav-list-mobile a {
-    color: #fff;
-}
-
   /* 반응형 미디어 쿼리 */
-@media screen and (min-width: 768px) {
-    .header-nav-mobile {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 767px) {
-    .header-nav-pc {
-        display: none;
+    .header-nav{
+        margin-right: 10px;
+        margin-left: auto;
     }
+
+    .nav-list-wrapper {
+        display: none;
+        position: fixed;
+        gap: 0;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        background-color: #0e0e0e;
+        /* padding: 0 2rem; */
+        padding-top: 2.5rem;
+        padding-left: 1rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transform: translateX(100%);
+        z-index: 999;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-list {
+        font-weight: 600;
+        font-size: 30px;
+        position: relative;
+    }
+    
+    .nav-list a {
+        color: #fff;
+    }
+
+    .nav-burger-icon {
+        display: block;
+    }
+    
+    .nav-x-icon {
+        display: block;
+    }
+
+    .nav-list-wrapper.active {
+        display: flex;
+        transform: translateX(0);
+    }
+    
 }
