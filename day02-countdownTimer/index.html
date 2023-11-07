@@ -9,7 +9,33 @@
   <body>
     <main class="main-container">
       <div class="timer-container">
-        <span class="timer">00 : 00 : 00</span>
+        <!-- <span class="timer">00 : 00 : 00</span> -->
+        <div class="timer-wrapper">
+          <input
+            type="number"
+            class="hours"
+            placeholder="00"
+            max="24"
+            min="00"
+            autofocus
+          />
+          <span>:</span>
+          <input
+            type="number"
+            class="minutes"
+            placeholder="00"
+            max="59"
+            min="00"
+          />
+          <span>:</span>
+          <input
+            type="number"
+            class="seconds"
+            placeholder="00"
+            max="59"
+            min="00"
+          />
+        </div>
         <div class="button-wrapper">
           <button class="start">START</button>
           <button class="stop">STOP</button>
