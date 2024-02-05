@@ -1,5 +1,7 @@
 // 표시할 타이머
-const timer = document.querySelector('.timer');
+const hours = document.querySelector('.hours');
+const minutes = document.querySelector('.minutes');
+const seconds = document.querySelector('.seconds');
 
 // 타이머 제어 버튼
 const start = document.querySelector('.start');
@@ -7,7 +9,7 @@ const stop = document.querySelector('.stop');
 const reset = document.querySelector('.reset');
 
 // 타이머 동작 로직
-let time = 3600;
+let time;
 let clear; // setInterval 함수로 생성된 인터벌 ID를 저장하는 변수, clearInterval에 전달.
 
 const startButtonHandler = () => {
